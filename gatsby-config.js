@@ -4,9 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Herrerake`,
+    description: `Reimagining Content Management`,
+    author: `@herrerake`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -42,6 +42,27 @@ module.exports = {
         //If using single types place them in this array.
         singleTypes: [`Homepage`],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
+      },
+    },
+    {
+      resolve: `@chakra-ui/gatsby-plugin`,
+      options: {
+        // /**
+        //  * @property {boolean} [isResettingCSS=true]
+        //  * if `false`, this plugin will not use `<CSSReset />
+        //  */
+        isResettingCSS: true,
+        // /**
+        //  * @property {boolean} [isUsingColorMode=true]
+        //  * if `false`, this plugin will not use <ColorModeProvider />
+        //  */
+        isUsingColorMode: true,
+        // /**
+        //  * @property {number} [portalZIndex=40]
+        //  * The z-index to apply to all portal nodes. This is useful
+        //  * if your app uses a lot z-index to position elements.
+        //  */
+        portalZIndex: 40,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
