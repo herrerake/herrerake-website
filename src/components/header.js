@@ -5,13 +5,13 @@ import ThemeToggle from "./toggle-theme"
 import PropTypes from "prop-types"
 
 const Header = ({ siteTitle }) => (
-  <Box as="header" background="rebeccapurple" marginBottom="1.45rem">
+  <Box as="header" background="white" marginBottom="1.45rem">
     <Box as="div" m="0 auto" maxW="960px" p="1.45rem 1.0875rem">
-      <Heading margin="0">
+      <Heading as="h1" margin="0">
         <Link
           as={GatsbyLink}
           to="/"
-          color="white"
+          color="gray.500"
           _hover={{ textDecor: "none" }}
         >
           {siteTitle}
