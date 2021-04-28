@@ -4,9 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Herrerake`,
+    description: `Reimagining Content Management`,
+    author: `@herrerake`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -34,7 +34,9 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: process.env.API_URL || "http://localhost:1337",
+        apiURL: process.env.DEPLOY_URL
+          ? "https://herrerake-website.herokuapp.com"
+          : "http://localhost:1337",
         queryLimit: 1000, // Default to 100
         contentTypes: [`Users`, `Case-Studies`, `Portfolios`],
         //If using single types place them in this array.
@@ -42,6 +44,28 @@ module.exports = {
         // Possibility to login with a strapi user, when content types are not publically available (optional).
       },
     },
+    {
+      resolve: `@chakra-ui/gatsby-plugin`,
+      options: {
+        // /**
+        //  * @property {boolean} [isResettingCSS=true]
+        //  * if `false`, this plugin will not use `<CSSReset />
+        //  */
+        isResettingCSS: true,
+        // /**
+        //  * @property {boolean} [isUsingColorMode=true]
+        //  * if `false`, this plugin will not use <ColorModeProvider />
+        //  */
+        isUsingColorMode: true,
+        // /**
+        //  * @property {number} [portalZIndex=40]
+        //  * The z-index to apply to all portal nodes. This is useful
+        //  * if your app uses a lot z-index to position elements.
+        //  */
+        portalZIndex: 40,
+      },
+    },
+    `gatsby-plugin-fontawesome-css`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
