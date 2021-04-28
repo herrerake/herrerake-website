@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faHome,
   faSearch,
-  faHeart,
   faSuitcase,
   faUser,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons"
 import { Box, Flex, Center, Text, Square, Link } from "@chakra-ui/react"
 
@@ -18,23 +18,27 @@ const Footer = () => (
       w="100%"
       zIndex={2}
       bottom={0}
+      borderTop="1px"
+      borderColor="gray.300"
+      py={3}
+      color="gray.600"
     >
       <Box>
         <Square>
-          <FontAwesomeIcon icon={faHome} />
+          <FontAwesomeIcon icon={faHome} size="2x" />
         </Square>
       </Box>
       <Box>
-        <FontAwesomeIcon icon={faSearch} />
+        <FontAwesomeIcon icon={faSearch} size="2x" />
       </Box>
       <Box>
-        <FontAwesomeIcon icon={faHeart} />
+        <FontAwesomeIcon icon={faUser} size="2x" />
       </Box>
       <Box>
-        <FontAwesomeIcon icon={faSuitcase} />
+        <FontAwesomeIcon icon={faSuitcase} size="2x" />
       </Box>
       <Box>
-        <FontAwesomeIcon icon={faUser} />
+        <FontAwesomeIcon icon={faBars} size="2x" />
       </Box>
     </Flex>
   </>
