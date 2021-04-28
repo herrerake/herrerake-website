@@ -12,7 +12,6 @@ import { Box, Flex, Center, Text, Square, Link } from "@chakra-ui/react"
 const Footer = () => (
   <>
     <Flex
-      color="block"
       justifyContent="space-evenly"
       pos="fixed"
       w="100%"
@@ -22,6 +21,7 @@ const Footer = () => (
       borderColor="gray.300"
       py={3}
       color="gray.600"
+      bg="white"
     >
       <Box>
         <Square>

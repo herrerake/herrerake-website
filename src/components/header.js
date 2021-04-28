@@ -5,7 +5,7 @@ import ThemeToggle from "./toggle-theme"
 import PropTypes from "prop-types"
 
 const Header = ({ siteTitle }) => (
-  <Box as="header" background="white" marginBottom="1.45rem">
+  <Box as="header" background="white">
     <Box as="div" m="0 auto" maxW="960px" p="1.45rem 1.0875rem">
       <Heading as="h1" margin="0">
         <Link
