@@ -11,7 +11,6 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Footer from "./footer"
-import { Box } from "@chakra-ui/react"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -27,9 +26,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <Box as="div" m="0 auto" mb="60px" bg="gray.50">
-        <Box as="main">{children}</Box>
-      </Box>
+      <div>
+        <div as="main">{children}</div>
+      </div>
       <Footer/>
     </>
   )

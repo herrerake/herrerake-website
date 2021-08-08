@@ -44,27 +44,6 @@ module.exports = {
         // Possibility to login with a strapi user, when content types are not publically available (optional).
       },
     },
-    {
-      resolve: `@chakra-ui/gatsby-plugin`,
-      options: {
-        // /**
-        //  * @property {boolean} [isResettingCSS=true]
-        //  * if `false`, this plugin will not use `<CSSReset />
-        //  */
-        isResettingCSS: true,
-        // /**
-        //  * @property {boolean} [isUsingColorMode=true]
-        //  * if `false`, this plugin will not use <ColorModeProvider />
-        //  */
-        isUsingColorMode: true,
-        // /**
-        //  * @property {number} [portalZIndex=40]
-        //  * The z-index to apply to all portal nodes. This is useful
-        //  * if your app uses a lot z-index to position elements.
-        //  */
-        portalZIndex: 40,
-      },
-    },
     `gatsby-plugin-fontawesome-css`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
