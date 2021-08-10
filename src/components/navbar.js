@@ -8,7 +8,7 @@ const Navbar = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" href="https://bulma.io">
+        <a className="navbar-item" href="/">
           <span className="is-size-4">Herrerake</span>
         </a>
 
