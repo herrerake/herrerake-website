@@ -5,6 +5,6 @@
  */
 
 // You can delete this file if you're not using it
-import { wrapPageElement as wrap } from "./src/root-wrapper"
 
-export const wrapPageElement = wrap
+// export const wrapPageElement = wrap
+require("./src/sass/app.scss")
