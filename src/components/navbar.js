@@ -7,50 +7,63 @@ const Navbar = () => {
       role="navigation"
       aria-label="main navigation"
     >
-      <div className="navbar-brand">
-        <a className="navbar-item" href="/">
-          <span className="is-size-4">Herrerake</span>
-        </a>
+      <div className="container">
+        <div className="navbar-brand">
+          <a className="navbar-item" href="/">
+            <span className="is-size-4">Herrerake</span>
+          </a>
 
-        <a
-          role="button"
-          className="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
+          <a
+            role="button"
+            className="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasic"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
 
-      <div id="navbarBasicExample" className="navbar-menu">
-        <div className="navbar-start">
-          <a className="navbar-item">Home</a>
-
-          <a className="navbar-item">Documentation</a>
-
+        <div id="navbarBasic" className="navbar-menu">
+          {/* <div className="navbar-start">
           <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link">More</a>
+            <a className="navbar-link">Contents</a>
+
+            <div className="navbar-dropdown">
+              <a className="navbar-item">Clients</a>
+              <a className="navbar-item">Capabilities</a>
+              <a className="navbar-item">Insights</a>
+            </div>
+          </div>
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link">Company</a>
 
             <div className="navbar-dropdown">
               <a className="navbar-item">About</a>
-              <a className="navbar-item">Jobs</a>
+              <a className="navbar-item">Careers</a>
               <a className="navbar-item">Contact</a>
-              <hr className="navbar-divider" />
-              <a className="navbar-item">Report an issue</a>
             </div>
           </div>
-        </div>
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link">Partners</a>
 
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
-              <a className="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a className="button is-light">Log in</a>
+            <div className="navbar-dropdown">
+              <a className="navbar-item">Strapi</a>
+              <a className="navbar-item">Gatsby</a>
+              <a className="navbar-item">Shopify</a>
+            </div>
+          </div>
+        </div> */}
+
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <div className="buttons">
+                <a href="#contact-us" className="button is-primary">
+                  <strong>Contact Us</strong>
+                </a>
+              </div>
             </div>
           </div>
         </div>
