@@ -10,7 +10,11 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
-            <span className="is-size-4">Herrerake</span>
+            <img
+              src="/herrerake-square-logo.png"
+              width="75"
+              height="75"
+            ></img>
           </a>
 
           <a
