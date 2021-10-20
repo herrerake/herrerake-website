@@ -1,7 +1,9 @@
 import React from "react"
 import Layout from "../components/layout"
+import Hero from "../components/hero"
 import Seo from "../components/seo"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
+
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 
@@ -94,83 +96,43 @@ import { Link } from "gatsby"
 //   </Layout>
 // )
 
-const IndexPage = ({ data }) => {
-  const heroData = data.strapiHomepage.hero
-  console.log(heroData)
-  // const pokemon = data.allPokemon.nodes.map(node => {
-  //   const { name, types, id } = node
-  //   return {
-  //     name,
-  //     id,
-  //     types: types.map(type => type.type.name),
-  //   }
-  // })
-  return (
-    <Layout>
-      <Seo title="Herrerake - Home" />
-      <div className="container">
-        <section className="section">
-          <div className="columns">
-            <div className="column is-12-mobile">
-            <Img fluid={heroData.image.localFile.childImageSharp.fluid} />
-              <span>{heroData.subtitle}</span>
-              <h1>{heroData.title}</h1>
-              <div className="columns is-mobile">
-                {heroData.button.map(button => (
-                  <div className="column is-4-mobile">
-                    <button className="button">
-                      <Link to={button.url}>{button.title}</Link>
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </Layout>
-  )
-}
-
-export const query = graphql`
-  {
-    strapiHomepage {
-      hero {
-        title
-        subtitle
-        button {
-          url
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    {
+      strapiHomepage {
+        hero {
           title
-          isExternal
-          id
-        }
-        image {
-          localFile {
-            childImageSharp {
-              fluid {
-                base64
-                tracedSVG
-                srcWebp
-                srcSetWebp
-                originalImg
-                originalName
+          subtitle
+          button {
+            url
+            title
+            isExternal
+            id
+          }
+          image {
+            localFile {
+              childImageSharp {
+                fluid(quality: 90, maxHeight: 400) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
               }
-              gatsbyImageData
             }
           }
         }
       }
-      showcase {
-        name
-        link
-      }
-      blocklink {
-        title
-        link
-        id
-      }
     }
-  }
-`
+  `)
+
+  const heroData = data.strapiHomepage.hero
+
+  return (
+    <Layout>
+      <Seo title="Herrerake - Home" />
+      <div className="container">
+        <Hero heroData={heroData} />
+      </div>
+    </Layout>
+  )
+}
 
 export default IndexPage
