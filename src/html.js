@@ -3,13 +3,13 @@ import PropTypes from "prop-types"
 
 export default function HTML(props) {
   return (
-    <html className="has-navbar-fixed-top" {...props.htmlAttributes}>
+    <html className="has-navbar-fixed-bottom" {...props.htmlAttributes}>
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no maximum-scale=1.0, user-scalable=no"
         />
         <link rel="stylesheet" href="css/app.css"></link>
         {props.headComponents}

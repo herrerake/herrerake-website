@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import { Link } from "gatsby"
 
 // const IndexPage = () => (
 //   <Layout>
@@ -93,14 +94,39 @@ import Img from "gatsby-image"
 //   </Layout>
 // )
 
-const IndexPage = ({data}) => {
-  console.log(data)
+const IndexPage = ({ data }) => {
+  const heroData = data.strapiHomepage.hero
+  console.log(heroData)
+  // const pokemon = data.allPokemon.nodes.map(node => {
+  //   const { name, types, id } = node
+  //   return {
+  //     name,
+  //     id,
+  //     types: types.map(type => type.type.name),
+  //   }
+  // })
   return (
     <Layout>
-      <Seo title="Home" />
-      <div>
-        {/* <Img fluid={data.strapiHomepage.Hero.image.localFile.childImageSharp.fluid} /> */}{" "}
-        hello
+      <Seo title="Herrerake - Home" />
+      <div className="container">
+        <section className="section">
+          <div className="columns">
+            <div className="column is-12-mobile">
+            <Img fluid={heroData.image.localFile.childImageSharp.fluid} />
+              <span>{heroData.subtitle}</span>
+              <h1>{heroData.title}</h1>
+              <div className="columns is-mobile">
+                {heroData.button.map(button => (
+                  <div className="column is-4-mobile">
+                    <button className="button">
+                      <Link to={button.url}>{button.title}</Link>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </Layout>
   )
