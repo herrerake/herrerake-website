@@ -1,6 +1,7 @@
 import * as React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBlog, faPhoneAlt, faStore } from "@fortawesome/free-solid-svg-icons"
+import { Link } from "gatsby"
 
 const Navbar = () => {
   return (
@@ -13,28 +14,28 @@ const Navbar = () => {
         <div id="navbarBasic">
           <div className="navbar-start is-flex is-justify-content-space-around">
             <div className="navbar-item">
-              <a className="navbar-link is-arrowless" href="/">
+              <Link className="remove-link-color" to="/">
                 <img
                   src="/herrerake-square-logo.png"
                   width="40"
                   height="40"
                 ></img>
-              </a>
+              </Link>
             </div>
             <div className="navbar-item">
-              <a className="navbar-link is-arrowless" href="/">
-                <FontAwesomeIcon icon={faBlog} size = '2x' />
-              </a>
+              <Link className="remove-link-color" to="/">
+                <FontAwesomeIcon icon={faBlog} size="2x" />
+              </Link>
             </div>
             <div className="navbar-item">
-              <a className="navbar-link is-arrowless" href="/">
-                <FontAwesomeIcon icon={faStore} size = '2x' />
-              </a>
+              <Link className="remove-link-color" to="/">
+                <FontAwesomeIcon icon={faStore} size="2x" />
+              </Link>
             </div>
             <div className="navbar-item">
-              <a className="navbar-link is-arrowless" href="/">
-                <FontAwesomeIcon icon={faPhoneAlt} size = '2x' />
-              </a>
+              <Link className="remove-link-color" to="/">
+                <FontAwesomeIcon icon={faPhoneAlt} size="2x" />
+              </Link>
             </div>
           </div>
         </div>
