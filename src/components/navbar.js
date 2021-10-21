@@ -23,17 +23,17 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="navbar-item">
-              <Link className="remove-link-color" to="/">
+              <Link className="remove-link-color" to="/blog">
                 <FontAwesomeIcon icon={faBlog} size="2x" />
               </Link>
             </div>
             <div className="navbar-item">
-              <Link className="remove-link-color" to="/">
+              <Link className="remove-link-color" to="/store">
                 <FontAwesomeIcon icon={faStore} size="2x" />
               </Link>
             </div>
             <div className="navbar-item">
-              <Link className="remove-link-color" to="/">
+              <Link className="remove-link-color" to="/contact">
                 <FontAwesomeIcon icon={faPhoneAlt} size="2x" />
               </Link>
             </div>
