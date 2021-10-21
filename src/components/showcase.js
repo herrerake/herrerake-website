@@ -1,17 +1,8 @@
 import * as React from "react"
-import BackgroundImage from "gatsby-background-image"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 const Showcase = ({ showcaseData }) => {
-  //   const heroImage = heroData.image.localFile.childImageSharp.fluid
-
-  //   const heroContentPositioning = {
-  //     position: "relative",
-  //     top: "275px",
-  //     left: "0",
-  //   }
-  console.log(showcaseData)
   return (
     <section className="section">
       <div className="columns is-mobile">
