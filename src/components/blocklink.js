@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 const BlockLink = ({ blocklinkData }) => {
-  console.log(blocklinkData)
   return (
     <section className="section">
       <div className="columns is-mobile">
