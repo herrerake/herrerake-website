@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import Hero from "../components/hero"
+import Showcase from "../components/showcase"
 import Seo from "../components/seo"
 import { graphql, useStaticQuery } from "gatsby"
 
@@ -119,17 +120,47 @@ const IndexPage = () => {
             }
           }
         }
+        showcase {
+          id
+          link
+          name
+          logo {
+            localFile {
+              childImageSharp {
+                fluid(quality: 90, maxHeight: 400) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+          screenshot {
+            localFile {
+              childImageSharp {
+                fluid(quality: 90, maxHeight: 400) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+        blocklink {
+          id
+          link
+          title
+        }
       }
     }
   `)
 
   const heroData = data.strapiHomepage.hero
+  const showcaseData = data.strapiHomepage.showcase
 
   return (
     <Layout>
       <Seo title="Herrerake - Home" />
       <div className="container">
         <Hero heroData={heroData} />
+        <Showcase showcaseData={showcaseData} />
       </div>
     </Layout>
   )

@@ -58,13 +58,13 @@ const Header = ({ siteTitle }) => {
             <div className="tabs">
               <ul>
                 <li className="is-active">
-                  <Link>Main</Link>
+                  <Link to="/">Main</Link>
                 </li>
                 <li>
-                  <Link>Store</Link>
+                  <Link to="/">Store</Link>
                 </li>
                 <li>
-                  <Link>Contact</Link>
+                  <Link to="/">Contact</Link>
                 </li>
               </ul>
             </div>
