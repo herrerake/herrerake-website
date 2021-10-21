@@ -67,7 +67,7 @@ const IndexPage = () => {
   const heroData = data.strapiHomepage.hero
   const showcaseData = data.strapiHomepage.showcase
   const blocklinkData = data.strapiHomepage.blocklink
-console.log(heroData)
+
   return (
     <Layout>
       <Seo title="Herrerake - Home" />
