@@ -72,8 +72,19 @@ a.remove-link-color {
     flex: 0 0 auto;
     height: auto;
     width: 200px;
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
   }
-  .showcase-card:not(:last-child) {
-    margin-right: 1rem;
+}
+
+.blocklink {
+  background-color: #f5f5f5;
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
   }
+}
+
+.w100 {
+  width: 100%;
 }
