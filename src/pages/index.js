@@ -1,8 +1,13 @@
 import React from "react"
 import Layout from "../components/layout"
+import Hero from "../components/hero"
+import Showcase from "../components/showcase"
+import Blocklink from "../components/blocklink"
 import Seo from "../components/seo"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
+
 import Img from "gatsby-image"
+import { Link } from "gatsby"
 
 // const IndexPage = () => (
 //   <Layout>
@@ -93,58 +98,75 @@ import Img from "gatsby-image"
 //   </Layout>
 // )
 
-const IndexPage = ({data}) => {
-  console.log(data)
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    {
+      strapiHomepage {
+        hero {
+          title
+          subtitle
+          button {
+            url
+            title
+            isExternal
+            id
+          }
+          image {
+            localFile {
+              childImageSharp {
+                fluid(quality: 90, maxHeight: 400) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+        showcase {
+          id
+          link
+          name
+          logo {
+            localFile {
+              childImageSharp {
+                fluid(quality: 90, maxHeight: 400) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+          screenshot {
+            localFile {
+              childImageSharp {
+                fluid(quality: 90, maxHeight: 400) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+        blocklink {
+          id
+          link
+          title
+        }
+      }
+    }
+  `)
+
+  const heroData = data.strapiHomepage.hero
+  const showcaseData = data.strapiHomepage.showcase
+  const blocklinkData = data.strapiHomepage.blocklink
+
   return (
     <Layout>
-      <Seo title="Home" />
-      <div>
-        {/* <Img fluid={data.strapiHomepage.Hero.image.localFile.childImageSharp.fluid} /> */}{" "}
-        hello
+      <Seo title="Herrerake - Home" />
+      <div className="container">
+        <Hero heroData={heroData} />
+        <Showcase showcaseData={showcaseData} />
+        <Blocklink blocklinkData={blocklinkData} />
       </div>
     </Layout>
   )
 }
-
-export const query = graphql`
-  {
-    strapiHomepage {
-      hero {
-        title
-        subtitle
-        button {
-          url
-          title
-          isExternal
-          id
-        }
-        image {
-          localFile {
-            childImageSharp {
-              fluid {
-                base64
-                tracedSVG
-                srcWebp
-                srcSetWebp
-                originalImg
-                originalName
-              }
-              gatsbyImageData
-            }
-          }
-        }
-      }
-      showcase {
-        name
-        link
-      }
-      blocklink {
-        title
-        link
-        id
-      }
-    }
-  }
-`
 
 export default IndexPage
