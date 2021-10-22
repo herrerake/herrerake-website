@@ -36,10 +36,9 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        // apiURLOG: process.env.DEPLOY_URL
-        //   ? "https://herrerake-website.herokuapp.com"
-        //   : "http://localhost:1337",
-        apiURL: "http://localhost:1337",
+        apiURL: process.env.DEPLOY_URL
+          ? "https://herrerake-website.herokuapp.com"
+          : "http://localhost:1337",
         queryLimit: 1000, // Default to 100
         contentTypes: [`Users`, `Case-Studies`, `Portfolios`],
         //If using single types place them in this array.
