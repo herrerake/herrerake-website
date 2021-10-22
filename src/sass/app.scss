@@ -88,3 +88,11 @@ a.remove-link-color {
 .w100 {
   width: 100%;
 }
+
+.under-construction-hero {
+  min-height: 400px;
+  min-width: 300px;
+  background-image: url("/under-construction.jpg");
+  background-position: center;
+  background-size: cover;
+}

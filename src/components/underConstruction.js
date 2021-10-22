@@ -11,16 +11,8 @@ const UnderConstruction = () => {
 
   return (
     <section className="section">
-      <div className="columns">
-        <div
-          style={{
-            minHeight: 400,
-            minWidth: 300,
-            backgroundImage: `url("/under-construction.jpg")`,
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-          }}
-        >
+      <div className="columns under-construction-hero">
+        <div>
           <div className="column is-12-mobile" style={heroContentPositioning}>
             <div className="mb-3">
               <h1 className="has-text-white">Hustle sold separately</h1>
