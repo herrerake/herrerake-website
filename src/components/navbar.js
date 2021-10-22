@@ -1,69 +1,88 @@
-import * as React from "react"
+import React, { useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faBlog,
+  faPhoneAlt,
+  faStore,
+  faBars,
+} from "@fortawesome/free-solid-svg-icons"
+import { Link } from "gatsby"
 
 const Navbar = () => {
+  const [activeNav, setActiveNav] = useState(false)
+  const tempNavData = [
+    { href: "/about", title: "about", uuid: "navid01" },
+    { href: "/blog", title: "blog", uuid: "navid02" },
+    { href: "/careers", title: "careers", uuid: "navid03" },
+    { href: "/contact", title: "contact", uuid: "navid04" },
+    { href: "/", title: "home", uuid: "navid05" },
+    { href: "/showcase", title: "showcase", uuid: "navid06" },
+    { href: "/store", title: "store", uuid: "navid07" },
+  ]
   return (
     <nav
-      className="navbar is-fixed-top"
+      className="navbar is-fixed-bottom"
       role="navigation"
       aria-label="main navigation"
     >
       <div className="container">
-        <div className="navbar-brand">
-          <a className="navbar-item" href="/">
-            <span className="is-size-4">Herrerake</span>
-          </a>
-
-          <a
-            role="button"
-            className="navbar-burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasic"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div id="navbarBasic" className="navbar-menu">
-          {/* <div className="navbar-start">
-          <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link">Contents</a>
-
-            <div className="navbar-dropdown">
-              <a className="navbar-item">Clients</a>
-              <a className="navbar-item">Capabilities</a>
-              <a className="navbar-item">Insights</a>
-            </div>
-          </div>
-          <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link">Company</a>
-
-            <div className="navbar-dropdown">
-              <a className="navbar-item">About</a>
-              <a className="navbar-item">Careers</a>
-              <a className="navbar-item">Contact</a>
-            </div>
-          </div>
-          <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link">Partners</a>
-
-            <div className="navbar-dropdown">
-              <a className="navbar-item">Strapi</a>
-              <a className="navbar-item">Gatsby</a>
-              <a className="navbar-item">Shopify</a>
-            </div>
-          </div>
-        </div> */}
-
-          <div className="navbar-end">
+        <div id="navbarBasic">
+          <div className="navbar-start is-flex is-justify-content-space-around">
             <div className="navbar-item">
-              <div className="buttons">
-                <a href="#contact-us" className="button is-primary">
-                  <strong>Contact Us</strong>
-                </a>
+              <div
+                className={`dropdown is-up custom-nav-dropup ${
+                  activeNav ? "is-active" : "not-active"
+                }`}
+              >
+                <div className="dropdown-trigger">
+                  <div
+                    aria-haspopup="true"
+                    aria-controls="dropdown-menu"
+                    onClick={() => setActiveNav(!activeNav)}
+                  >
+                    {!activeNav ? (
+                      <FontAwesomeIcon icon={faBars} size="2x" />
+                    ) : (
+                      <img
+                        src="/herrerake-square-logo.png"
+                        width="28"
+                        height="30"
+                      />
+                    )}
+                  </div>
+                </div>
+                {activeNav ? (
+                  <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div className="dropdown-content">
+                      {tempNavData.map(item => (
+                        <div className="dropdown-item" key={item.uuid}>
+                          <Link
+                            className="remove-link-color is-capitalized"
+                            to={item.href}
+                          >
+                            {item.title}
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
               </div>
+            </div>
+            <div className="navbar-item">
+              <Link className="remove-link-color" to="/blog">
+                <FontAwesomeIcon icon={faBlog} size="2x" />
+              </Link>
+            </div>
+            <div className="navbar-item">
+              <Link className="remove-link-color" to="/store">
+                <FontAwesomeIcon icon={faStore} size="2x" />
+              </Link>
+            </div>
+            <div className="navbar-item">
+              <Link className="remove-link-color" to="/contact">
+                <FontAwesomeIcon icon={faPhoneAlt} size="2x" />
+              </Link>
             </div>
           </div>
         </div>
