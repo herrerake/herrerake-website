@@ -1,6 +1,11 @@
 import React, { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBlog, faPhoneAlt, faStore } from "@fortawesome/free-solid-svg-icons"
+import {
+  faBlog,
+  faPhoneAlt,
+  faStore,
+  faBars,
+} from "@fortawesome/free-solid-svg-icons"
 import { Link } from "gatsby"
 
 const Navbar = () => {
@@ -24,26 +29,30 @@ const Navbar = () => {
         <div id="navbarBasic">
           <div className="navbar-start is-flex is-justify-content-space-around">
             <div className="navbar-item">
-              <div className="dropdown is-up is-active custom-nav-dropup">
+              <div
+                className={`dropdown is-up custom-nav-dropup ${
+                  activeNav ? "is-active" : "not-active"
+                }`}
+              >
                 <div className="dropdown-trigger">
                   <div
                     aria-haspopup="true"
                     aria-controls="dropdown-menu"
                     onClick={() => setActiveNav(!activeNav)}
                   >
-                    <img
-                      src="/herrerake-square-logo.png"
-                      width="40"
-                      height="40"
-                    ></img>
+                    {!activeNav ? (
+                      <FontAwesomeIcon icon={faBars} size="2x" />
+                    ) : (
+                      <img
+                        src="/herrerake-square-logo.png"
+                        width="28"
+                        height="30"
+                      />
+                    )}
                   </div>
                 </div>
                 {activeNav ? (
-                  <div
-                    className="dropdown-menu"
-                    id="dropdown-menu7"
-                    role="menu"
-                  >
+                  <div className="dropdown-menu" id="dropdown-menu" role="menu">
                     <div className="dropdown-content">
                       {tempNavData.map(item => (
                         <div className="dropdown-item" key={item.uuid}>
