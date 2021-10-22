@@ -96,3 +96,13 @@ a.remove-link-color {
   background-position: center;
   background-size: cover;
 }
+
+.custom-nav-dropup.is-up {
+  .dropdown-menu {
+    bottom: 120%;
+    height: 400px;
+  }
+  .dropdown-content {
+    height: inherit;
+  }
+}
