@@ -54,21 +54,6 @@ const Header = ({ siteTitle }) => {
               </a>
             </div>
           </div>
-          <div className="columns">
-            <div className="tabs">
-              <ul>
-                <li className="is-active">
-                  <Link to="/">Main</Link>
-                </li>
-                <li>
-                  <Link to="/">Store</Link>
-                </li>
-                <li>
-                  <Link to="/">Contact</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
         </section>
       </div>
     </header>
