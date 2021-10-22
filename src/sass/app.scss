@@ -95,6 +95,11 @@ a.remove-link-color {
   background-image: url("/under-construction.jpg");
   background-position: center;
   background-size: cover;
+  .column {
+    position: relative;
+    top: 280px;
+    left: 0;
+  }
 }
 
 .custom-nav-dropup.is-up {

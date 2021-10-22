@@ -3,8 +3,10 @@ import Layout from "../components/layout"
 import Hero from "../components/hero"
 import Showcase from "../components/showcase"
 import Blocklink from "../components/blocklink"
+import UnderConstruction from "../components/underConstruction"
 import Seo from "../components/seo"
 import { graphql, useStaticQuery } from "gatsby"
+import { Tabs } from "../components/tabs/Tabs"
 
 import Img from "gatsby-image"
 import { Link } from "gatsby"
@@ -72,9 +74,39 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Herrerake - Home" />
       <div className="container">
-        <Hero heroData={heroData} />
-        <Showcase showcaseData={showcaseData} />
-        <Blocklink blocklinkData={blocklinkData} />
+        <Tabs defaultTabId="main">
+          <section className="section p-3">
+            <Tabs.TabList isSize="medium">
+              <Tabs.Tab tabId="main">Main</Tabs.Tab>
+              <Tabs.Tab tabId="store">Store</Tabs.Tab>
+              <Tabs.Tab tabId="contact">Contact</Tabs.Tab>
+            </Tabs.TabList>
+          </section>
+
+          <Tabs.TabPanel tabId="main">
+            <Hero heroData={heroData} />
+            <Showcase showcaseData={showcaseData} />
+            <Blocklink blocklinkData={blocklinkData} />
+          </Tabs.TabPanel>
+          <Tabs.TabPanel tabId="store">
+            <UnderConstruction />
+          </Tabs.TabPanel>
+          <Tabs.TabPanel tabId="contact">
+            <section className="section">
+              <h5>Let's work together</h5>
+              <h2>How Can We Help?</h2>
+              <div>
+                <p>
+                  Email Me:{" "}
+                  <a href="mailto:kevin@herrerake.com">kevin@herrerake.com</a>
+                </p>
+                <p>
+                  Call Me: <a href="tel:2026301339">202.630.1339</a>
+                </p>
+              </div>
+            </section>
+          </Tabs.TabPanel>
+        </Tabs>
       </div>
     </Layout>
   )
