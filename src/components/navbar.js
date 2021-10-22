@@ -6,13 +6,13 @@ import { Link } from "gatsby"
 const Navbar = () => {
   const [activeNav, setActiveNav] = useState(false)
   const tempNavData = [
-    { href: "/about", title: "about" },
-    { href: "/blog", title: "blog" },
-    { href: "/careers", title: "careers" },
-    { href: "/contact", title: "contact" },
-    { href: "/", title: "home" },
-    { href: "/showcase", title: "showcase" },
-    { href: "/store", title: "store" },
+    { href: "/about", title: "about", uuid: "navid01" },
+    { href: "/blog", title: "blog", uuid: "navid02" },
+    { href: "/careers", title: "careers", uuid: "navid03" },
+    { href: "/contact", title: "contact", uuid: "navid04" },
+    { href: "/", title: "home", uuid: "navid05" },
+    { href: "/showcase", title: "showcase", uuid: "navid06" },
+    { href: "/store", title: "store", uuid: "navid07" },
   ]
   return (
     <nav
@@ -46,7 +46,7 @@ const Navbar = () => {
                   >
                     <div className="dropdown-content">
                       {tempNavData.map(item => (
-                        <div className="dropdown-item">
+                        <div className="dropdown-item" key={item.uuid}>
                           <Link
                             className="remove-link-color is-capitalized"
                             to={item.href}
