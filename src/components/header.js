@@ -16,7 +16,7 @@ const Header = ({ siteTitle }) => {
           <div className="columns is-mobile">
             <div className="column is-6">
               <Link className="remove-link-color" to="/">
-                <img src="/herrerake-logo-spartan-black.png" width="200"></img>
+                <img src="/herrerake-logo-spartan-black.png" alt="Herrerake Logo" width="200"></img>
               </Link>
             </div>
             <div className="column is-6 is-flex is-justify-content-space-evenly">

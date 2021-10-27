@@ -47,6 +47,7 @@ const Navbar = () => {
                         src="/herrerake-square-logo.png"
                         width="28"
                         height="30"
+                        alt="Herrerake Logo"
                       />
                     )}
                   </div>

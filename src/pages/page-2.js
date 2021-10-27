@@ -1,7 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
-
 import Seo from "../components/seo"
 
 const SecondPage = () => (
@@ -68,7 +66,7 @@ const SecondPage = () => (
                 </p>
                 <p className="card-footer-item">
                   <span>
-                    View <a href="#">Case Study</a>
+                    View <a href="/">Case Study</a>
                   </span>
                 </p>
               </footer>

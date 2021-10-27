@@ -1,15 +1,13 @@
 import React from "react"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import Layout from "../components/layout"
 import Hero from "../components/hero"
 import Showcase from "../components/showcase"
 import Blocklink from "../components/blocklink"
-import UnderConstruction from "../components/underConstruction"
+import HomeStore from "../components/home/store"
 import Seo from "../components/seo"
-import { graphql, useStaticQuery } from "gatsby"
 import { Tabs } from "../components/tabs/Tabs"
-
-import Img from "gatsby-image"
-import { Link } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -50,9 +48,11 @@ const IndexPage = () => {
           screenshot {
             localFile {
               childImageSharp {
-                fluid(quality: 90, maxHeight: 400) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(
+                  width: 200
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }
@@ -67,7 +67,15 @@ const IndexPage = () => {
   `)
 
   const heroData = data.strapiHomepage.hero
-  const showcaseData = data.strapiHomepage.showcase
+  const showcaseData = data.strapiHomepage.showcase.map(node => {
+    const { name, link, id, screenshot } = node
+    return {
+      name,
+      link,
+      id,
+      image: getImage(screenshot.localFile),
+    }
+  })
   const blocklinkData = data.strapiHomepage.blocklink
 
   return (
@@ -85,11 +93,28 @@ const IndexPage = () => {
 
           <Tabs.TabPanel tabId="main">
             <Hero heroData={heroData} />
-            <Showcase showcaseData={showcaseData} />
-            <Blocklink blocklinkData={blocklinkData} />
+            <section className="section">
+              <div className="columns is-mobile">
+                <div className="column">
+                  <h2>Showcase</h2>
+                </div>
+                <div className="column is-flex is-justify-content-end">
+                  <Link to="/">View All</Link>
+                </div>
+              </div>
+              <Showcase showcaseData={showcaseData} />
+            </section>
+            <section className="section">
+              <div className="columns is-mobile">
+                <div className="column">
+                  <h2>Explore More</h2>
+                </div>
+              </div>
+              <Blocklink blocklinkData={blocklinkData} />
+            </section>
           </Tabs.TabPanel>
           <Tabs.TabPanel tabId="store">
-            <UnderConstruction />
+            <HomeStore />
           </Tabs.TabPanel>
           <Tabs.TabPanel tabId="contact">
             <section className="section">
