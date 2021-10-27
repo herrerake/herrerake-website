@@ -36,6 +36,7 @@ const HomeStore = () => {
     { link: "/", title: "Most Popular", id: "accessories2021" },
     { link: "/", title: "All Sale", id: "allsale2021" },
   ]
+
   return (
     <>
       <section className="section">
@@ -66,6 +67,74 @@ const HomeStore = () => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+      <section className="section pt-1">
+        <div className="columns is-mobile">
+          <div className="column">
+            <h5>Shop by Collection</h5>
+          </div>
+        </div>
+      </section>
+      <section className="section pt-1">
+        <div className="columns is-mobile">
+          <div className="column">
+            <h5>Recently Viewed</h5>
+          </div>
+        </div>
+        <div className="showcase-horizontal-scroll is-flex is-flex-wrap-nowrap">
+          {showcaseData.map(card => (
+            <div className="showcase-card mb-5" key={card.id}>
+              <div>
+                <Link className="remove-link-color" to={card.link}>
+                  <GatsbyImage
+                    className="mb-2"
+                    image={card.image}
+                    alt={card.altText}
+                  />
+                </Link>
+              </div>
+              <div>
+                <Link className="remove-link-color" to={card.link}>
+                  {card.name}
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="section pt-1">
+        <div className="columns is-mobile">
+          <div className="column">
+            <h5>Recommended for You</h5>
+          </div>
+        </div>
+        <div className="showcase-horizontal-scroll is-flex is-flex-wrap-nowrap">
+          {showcaseData.map(card => (
+            <div className="showcase-card mb-5" key={card.id}>
+              <div>
+                <Link className="remove-link-color" to={card.link}>
+                  <GatsbyImage
+                    className="mb-2"
+                    image={card.image}
+                    alt={card.altText}
+                  />
+                </Link>
+              </div>
+              <div>
+                <Link className="remove-link-color" to={card.link}>
+                  {card.name}
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="section pt-1">
+        <div className="columns is-mobile">
+          <div className="column">
+            <h5>Nearby Stores</h5>
+          </div>
         </div>
       </section>
     </>
