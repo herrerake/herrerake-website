@@ -16,14 +16,24 @@ const Showcase = ({ showcaseData }) => {
       <div className="showcase-horizontal-scroll is-flex is-flex-wrap-nowrap">
         {showcaseData.map(card => (
           <div className="showcase-card mb-5" key={card.name + card.id}>
-            <a className="remove-link-color" href={card.link} target="_blank">
+            <a
+              className="remove-link-color"
+              href={card.link}
+              target="_blank"
+              rel="noreferrer"
+            >
               <Img
                 fluid={card.screenshot.localFile.childImageSharp.fluid}
                 className="mb-2"
               />
             </a>
             <div>
-              <a className="remove-link-color" href={card.link} target="_blank">
+              <a
+                className="remove-link-color"
+                href={card.link}
+                target="_blank"
+                rel="noreferrer"
+              >
                 {card.name}
               </a>
             </div>

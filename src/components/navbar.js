@@ -12,12 +12,14 @@ const Navbar = () => {
   const [activeNav, setActiveNav] = useState(false)
   const tempNavData = [
     { href: "/about", title: "about", uuid: "navid01" },
+    { href: "/bag", title: "bag", uuid: "navid08" },
     { href: "/blog", title: "blog", uuid: "navid02" },
     { href: "/careers", title: "careers", uuid: "navid03" },
     { href: "/contact", title: "contact", uuid: "navid04" },
     { href: "/", title: "home", uuid: "navid05" },
+    { href: "/profile", title: "store", uuid: "navid07" },
     { href: "/showcase", title: "showcase", uuid: "navid06" },
-    { href: "/store", title: "store", uuid: "navid07" },
+    { href: "/store", title: "store", uuid: "navid09" },
   ]
   return (
     <nav
@@ -38,7 +40,9 @@ const Navbar = () => {
                   <div
                     aria-haspopup="true"
                     aria-controls="dropdown-menu"
+                    role="button"
                     onClick={() => setActiveNav(!activeNav)}
+                    onKeyPress={() => setActiveNav(!activeNav)}
                   >
                     {!activeNav ? (
                       <FontAwesomeIcon icon={faBars} size="2x" />
@@ -47,6 +51,7 @@ const Navbar = () => {
                         src="/herrerake-square-logo.png"
                         width="28"
                         height="30"
+                        alt="Herrerake Logo"
                       />
                     )}
                   </div>
