@@ -87,6 +87,7 @@ const IndexPage = () => {
             <Tabs.TabList isSize="medium">
               <Tabs.Tab tabId="main">Main</Tabs.Tab>
               <Tabs.Tab tabId="store">Store</Tabs.Tab>
+              <Tabs.Tab tabId="social">Social</Tabs.Tab>
               <Tabs.Tab tabId="contact">Contact</Tabs.Tab>
             </Tabs.TabList>
           </section>
@@ -115,6 +116,66 @@ const IndexPage = () => {
           </Tabs.TabPanel>
           <Tabs.TabPanel tabId="store">
             <HomeStore />
+          </Tabs.TabPanel>
+          <Tabs.TabPanel tabId="social">
+            <section className="section">
+              <div className="columns">
+                <div className="column">
+                  <h2>
+                    <a
+                      className="remove-link-color"
+                      href="www.github.com/herrerake"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Github
+                    </a>
+                  </h2>
+                </div>
+              </div>
+              <div className="columns">
+                <div className="column">
+                  <h2>
+                    <a
+                      className="remove-link-color"
+                      href="www.linkedin.com/in/herrerake/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      LinkedIn
+                    </a>
+                  </h2>
+                </div>
+              </div>
+              <div className="columns">
+                <div className="column">
+                  <h2>
+                    <a
+                      className="remove-link-color"
+                      href="www.twitter.com/1herrerake"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Twitter
+                    </a>
+                  </h2>
+                </div>
+              </div>
+              <div className="columns">
+                <div className="column">
+                  <h2>
+                    <a
+                      className="remove-link-color"
+                      href="www.instagram.com/herrerakee/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </h2>
+                </div>
+              </div>
+            </section>
           </Tabs.TabPanel>
           <Tabs.TabPanel tabId="contact">
             <section className="section">

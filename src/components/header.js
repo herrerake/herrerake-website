@@ -1,12 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faGithubSquare,
-  faLinkedin,
-  faTwitterSquare,
-  faInstagramSquare,
-} from "@fortawesome/free-brands-svg-icons"
+import { faShoppingBag, faUser } from "@fortawesome/free-solid-svg-icons"
 
 const Header = ({ siteTitle }) => {
   return (
@@ -19,39 +14,19 @@ const Header = ({ siteTitle }) => {
                 <img src="/herrerake-logo-spartan-black.png" alt="Herrerake Logo" width="200"></img>
               </Link>
             </div>
-            <div className="column is-6 is-flex is-justify-content-space-evenly">
-              <a
+            <div className="column is-6 is-flex is-justify-content-flex-end">
+              <Link
                 className="remove-link-color"
-                href="www.github.com/herrerake"
-                target="_blank"
-                rel="noreferrer"
+                to="/profile"
               >
-                <FontAwesomeIcon icon={faGithubSquare} size="2x" />
-              </a>
-              <a
-                className="remove-link-color"
-                href="www.linkedin.com/in/herrerake/"
-                target="_blank"
-                rel="noreferrer"
+                <FontAwesomeIcon icon={faUser} size="1x" />
+              </Link>
+              <Link
+                className="remove-link-color ml-2"
+                to="/bag"
               >
-                <FontAwesomeIcon icon={faLinkedin} size="2x" />
-              </a>
-              <a
-                className="remove-link-color"
-                href="www.twitter.com/1herrerake"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon icon={faTwitterSquare} size="2x" />
-              </a>
-              <a
-                className="remove-link-color"
-                href="www.instagram.com/herrerakee/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon icon={faInstagramSquare} size="2x" />
-              </a>
+                <FontAwesomeIcon icon={faShoppingBag} size="1x" />
+              </Link>
             </div>
           </div>
         </section>
