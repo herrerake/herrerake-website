@@ -130,13 +130,6 @@ const HomeStore = () => {
           ))}
         </div>
       </section>
-      <section className="section pt-1">
-        <div className="columns is-mobile">
-          <div className="column">
-            <h5>Nearby Stores</h5>
-          </div>
-        </div>
-      </section>
     </>
   )
 }
