@@ -53,6 +53,16 @@ module.exports = {
         storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
       },
     },
+    {
+      resolve: `gatsby-theme-shopify-manager`,
+      options: {
+        shopName: "shopherrerake", // or custom domain
+        accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
+        shouldConfigureSourcePlugin: true, // default
+        shouldWrapRootElementWithProvider: true, // default
+      },
+    },
+
     `gatsby-plugin-fontawesome-css`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
