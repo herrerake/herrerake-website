@@ -1,6 +1,5 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { useAddItemToCart, useCartCount } from "gatsby-theme-shopify-manager"
 // import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import PropTypes from "prop-types"
@@ -9,21 +8,7 @@ import Seo from "../components/seo"
 
 const Product = ({ data }) => {
   const { shopifyProduct } = data
-  const cartCount = useCartCount()
-  const addItemToCart = useAddItemToCart()
 
-  async function addToCart() {
-    console.log(shopifyProduct.shopifyId)
-    const variantId = shopifyProduct.shopifyId
-    const quantity = 1
-
-    try {
-      await addItemToCart(variantId, quantity)
-      alert("Successfully added that item to your cart!")
-    } catch {
-      alert("There was a problem adding that item to your cart.")
-    }
-  }
   return (
     <Layout>
       <Seo title={shopifyProduct.title} />
@@ -51,12 +36,11 @@ const Product = ({ data }) => {
             </div>
           </div>
           <div className="columns is-mobile">
-            <p>There are currently {cartCount} items in your cart.</p>
+            <p>There are currently items in your cart.</p>
             <div className="column">
               <div className="buttons ">
                 <button
                   className="button is-primary is-fullwidth"
-                  onClick={addToCart}
                 >
                   Add to Cart
                 </button>

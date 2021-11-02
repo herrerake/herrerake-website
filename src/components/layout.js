@@ -8,7 +8,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { ContextProvider } from "gatsby-theme-shopify-manager"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -30,9 +29,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <ContextProvider shopName={shopName} accessToken={accessToken}>
-        <main>{children}</main>
-      </ContextProvider>
+      <main>{children}</main>
       <Navbar />
       <Footer />
     </div>
