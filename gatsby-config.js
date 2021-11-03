@@ -36,7 +36,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: process.env.DEPLOY_URL
+        apiURL: process.env.API_URL
           ? "https://herrerake-website.herokuapp.com"
           : "http://localhost:1337",
         queryLimit: 1000, // Default to 100
