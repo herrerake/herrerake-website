@@ -36,9 +36,10 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: process.env.NODE_ENV === "production"
-          ? process.env.HEROKU_URL
-          : "http://localhost:1337",
+        apiURL:
+          process.env.NODE_ENV === "production"
+            ? process.env.DEPLOY_URL
+            : "http://localhost:1337",
         queryLimit: 5000, // Default to 100
         contentTypes: [`Users`, `Case-Studies`, `Portfolios`],
         //If using single types place them in this array.
