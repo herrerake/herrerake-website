@@ -6,7 +6,7 @@ import Blocklink from "../components/blocklink"
 import UnderConstruction from "../components/underConstruction"
 import Seo from "../components/seo"
 import { graphql, useStaticQuery } from "gatsby"
-import { Tabs } from "../components/tabs/Tabs"
+import { Tabs } from "../components/tabs/tabs"
 
 // import Img from "gatsby-image"
 // import { Link } from "gatsby"
