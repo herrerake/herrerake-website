@@ -36,8 +36,8 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: process.env.HEROKU_URL
-          ? "https://herrerake-website.herokuapp.com"
+        apiURL: process.env.NODE_ENV === "production"
+          ? process.env.HEROKU_URL
           : "http://localhost:1337",
         queryLimit: 1000, // Default to 100
         contentTypes: [`Users`, `Case-Studies`, `Portfolios`],
