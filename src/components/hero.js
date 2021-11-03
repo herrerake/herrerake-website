@@ -5,25 +5,23 @@ import { Link } from "gatsby"
 const Hero = ({ heroData }) => {
   const heroImage = heroData.image.localFile.childImageSharp.fluid
 
-  const heroContentPositioning = {
-    position: "relative",
-    top: "275px",
-    left: "0",
-  }
-  
   return (
-    <section className="section">
-      <div className="columns">
-        <BackgroundImage
-          tag="section"
-          fluid={heroImage}
-          backgroundColor={`#040e18`}
-        >
-          <div style={{ minHeight: 400, minWidth: 300 }}>
-            <div className="column is-12-mobile" style={heroContentPositioning}>
+    <>
+      {/* Using Bulma classes to display either hero section for mobile or for tablet/desktop */}
+      <BackgroundImage
+        tag="section"
+        fluid={heroImage}
+        backgroundColor={`#040e18`}
+        className="is-hidden-mobile"
+      >
+        <section className="section">
+          <div className="columns custom-hero-column">
+            <div className="column is-12">
               <div className="has-text-white mb-3">
                 <h1>{heroData.title}</h1>
-                <span>{heroData.subtitle}</span>
+                <span className="is-uppercase">
+                  for the best experience view on mobile
+                </span>
               </div>
               <div className="buttons">
                 {heroData.button.map(button => (
@@ -42,9 +40,43 @@ const Hero = ({ heroData }) => {
               </div>
             </div>
           </div>
-        </BackgroundImage>
-      </div>
-    </section>
+        </section>
+      </BackgroundImage>
+      {/* Below is mobile */}
+      <section className="section is-hidden-tablet">
+        <div className="columns">
+          <BackgroundImage
+            tag="section"
+            fluid={heroImage}
+            backgroundColor={`#040e18`}
+          >
+            <div className="custom-hero-column">
+              <div className="column is-12-mobile">
+                <div className="has-text-white mb-3">
+                  <h1>{heroData.title}</h1>
+                  <span>{heroData.subtitle}</span>
+                </div>
+                <div className="buttons">
+                  {heroData.button.map(button => (
+                    <button
+                      className="button is-primary"
+                      key={`uuid-${button.id}`}
+                    >
+                      <Link
+                        className="is-capitalized remove-link-color"
+                        to={button.url}
+                      >
+                        {button.title}
+                      </Link>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </BackgroundImage>
+        </div>
+      </section>
+    </>
   )
 }
 

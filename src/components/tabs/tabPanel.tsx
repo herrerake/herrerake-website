@@ -1,6 +1,6 @@
 import React, { FC, useContext } from "react"
-import { TabId } from "./Tabs"
-import { TabsContext } from "./TabsContext"
+import { TabId } from "./tabs"
+import { TabsContext } from "./tabsContext"
 
 type TabPanelCssProps = {}
 

@@ -90,15 +90,17 @@ a.remove-link-color {
 }
 
 .under-construction-hero {
-  min-height: 400px;
-  min-width: 300px;
-  background-image: url("/under-construction.jpg");
-  background-position: center;
-  background-size: cover;
-  .column {
-    position: relative;
-    top: 230px;
-    left: 0;
+  @include tablet {
+    background-image: url("/under-construction.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  @include mobile {
+    .columns {
+      background-image: url("/under-construction.jpg");
+      background-position: center;
+      background-size: cover;
+    }
   }
 }
 
@@ -110,4 +112,15 @@ a.remove-link-color {
   .dropdown-content {
     height: inherit;
   }
+}
+
+.navbar > .container {
+  display: block;
+}
+
+.custom-hero-column {
+  display: flex;
+  align-items: flex-end;
+  min-height: 400px;
+  min-width: 300px;
 }

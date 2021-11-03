@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react"
-import { Tab, TabProps } from "./Tab"
-import { TabList, TabListProps } from "./TabList"
-import { TabPanel, TabPanelProps } from "./TabPanel"
-import { TabsContext } from "./TabsContext"
+import { Tab, TabProps } from "./tab"
+import { TabList, TabListProps } from "./tabList"
+import { TabPanel, TabPanelProps } from "./tabPanel"
+import { TabsContext } from "./tabsContext"
 
 type TabsComposition = {
   Tab: FC<TabProps>

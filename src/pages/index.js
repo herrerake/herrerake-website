@@ -6,8 +6,11 @@ import Showcase from "../components/showcase"
 import Blocklink from "../components/blocklink"
 import HomeStore from "../components/home/store"
 import Seo from "../components/seo"
-import { Tabs } from "../components/tabs/Tabs"
 import { getImage } from "gatsby-plugin-image"
+import { Tabs } from "../components/tabs/tabs"
+
+// import Img from "gatsby-image"
+// import { Link } from "gatsby"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
