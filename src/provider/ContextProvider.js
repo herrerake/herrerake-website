@@ -1,4 +1,4 @@
-import React, { useEffect, createContext } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import Client from "shopify-buy"
 const SHOPIFY_CHECKOUT_STORAGE_KEY = "shopify_checkout_id"
 
@@ -22,7 +22,7 @@ const StoreContext = React.createContext({
 })
 
 function createNewCheckout(store) {
-  return store.client.checkout.create()
+  return store.checkout.create()
 }
 
 function fetchCheckout(store, id) {
@@ -54,7 +54,7 @@ const StoreContextProvider = ({ children }) => {
       if (existingCheckoutId) {
         try {
           const checkout = await fetchCheckout(client, existingCheckoutId)
-          // Make sure this cart hasn't already been purchased.
+          // Make sure this cart hasn’t already been purchased.
           if (!checkout.completedAt) {
             setCheckoutInState(checkout, setStore)
             return
@@ -67,6 +67,7 @@ const StoreContextProvider = ({ children }) => {
       const newCheckout = await createNewCheckout(client)
       setCheckoutInState(newCheckout, setStore)
     }
+
     initializeCheckout()
   }, [])
 
@@ -106,7 +107,7 @@ function useCartTotals() {
   } = useContext(StoreContext)
 
   const tax = checkout.totalTaxV2
-    ? `$${Number(checkout.totalPriceV2.amount).toFixed(2)}`
+    ? `$${Number(checkout.totalTaxV2.amount).toFixed(2)}`
     : "-"
   const total = checkout.totalPriceV2
     ? `$${Number(checkout.totalPriceV2.amount).toFixed(2)}`
@@ -120,7 +121,7 @@ function useCartTotals() {
 
 function useCartItems() {
   const {
-    store: {checkout},
+    store: { checkout },
   } = useContext(StoreContext)
 
   return checkout.lineItems
@@ -128,7 +129,7 @@ function useCartItems() {
 
 function useAddItemToCart() {
   const {
-    store: {checkout, client},
+    store: { checkout, client },
     setStore,
   } = useContext(StoreContext)
 
@@ -139,11 +140,11 @@ function useAddItemToCart() {
     }
 
     setStore(prevState => {
-      return {...prevState, isAdding: true}
+      return { ...prevState, isAdding: true }
     })
 
     const checkoutId = checkout.id
-    const lineItemsToAdd = [{variantId, quantity: parseInt(quantity, 10)}]
+    const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
 
     const newCheckout = await client.checkout.addLineItems(
       checkoutId,
@@ -151,7 +152,7 @@ function useAddItemToCart() {
     )
 
     setStore(prevState => {
-      return {...prevState, checkout: newCheckout, isAdding: false}
+      return { ...prevState, checkout: newCheckout, isAdding: false }
     })
   }
 
@@ -160,15 +161,17 @@ function useAddItemToCart() {
 
 function useRemoveItemFromCart() {
   const {
-    store: {client, checkout},
+    store: { client, checkout },
     setStore,
   } = useContext(StoreContext)
 
-  async function removeItemFromCart(itemId){
-    const newCheckout = await client.checkout.removeLineItems(checkout.id, [itemId,])
+  async function removeItemFromCart(itemId) {
+    const newCheckout = await client.checkout.removeLineItems(checkout.id, [
+      itemId,
+    ])
 
     setStore(prevState => {
-      return {...prevState, checkout: newCheckout}
+      return { ...prevState, checkout: newCheckout }
     })
   }
 
@@ -177,7 +180,7 @@ function useRemoveItemFromCart() {
 
 function useCheckout() {
   const {
-    store: {checkout},
+    store: { checkout },
   } = useContext(StoreContext)
 
   return () => {
@@ -193,5 +196,5 @@ export {
   useCartItems,
   useCartTotals,
   useRemoveItemFromCart,
-  useCheckout
+  useCheckout,
 }
