@@ -19,25 +19,25 @@ const Hero = ({ heroData }) => {
             <div className="column is-12">
               <div className="has-text-white mb-3">
                 <h1>{heroData.title}</h1>
-                <span className="is-uppercase">
-                  for the best experience view on mobile
-                </span>
+                <span>{heroData.subtitle}</span>
               </div>
-              <div className="buttons">
-                {heroData.button.map(button => (
-                  <button
-                    className="button is-primary"
-                    key={`uuid-${button.id}`}
-                  >
-                    <Link
-                      className="is-capitalized remove-link-color"
-                      to={button.url}
+              {heroData.button && (
+                <div className="buttons">
+                  {heroData.button.map(button => (
+                    <button
+                      className="button is-primary"
+                      key={`uuid-${button.id}`}
                     >
-                      {button.title}
-                    </Link>
-                  </button>
-                ))}
-              </div>
+                      <Link
+                        className="is-capitalized remove-link-color"
+                        to={button.url}
+                      >
+                        {button.title}
+                      </Link>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -56,21 +56,23 @@ const Hero = ({ heroData }) => {
                   <h1>{heroData.title}</h1>
                   <span>{heroData.subtitle}</span>
                 </div>
-                <div className="buttons">
-                  {heroData.button.map(button => (
-                    <button
-                      className="button is-primary"
-                      key={`uuid-${button.id}`}
-                    >
-                      <Link
-                        className="is-capitalized remove-link-color"
-                        to={button.url}
+                {heroData.button && (
+                  <div className="buttons">
+                    {heroData.button.map(button => (
+                      <button
+                        className="button is-primary"
+                        key={`uuid-${button.id}`}
                       >
-                        {button.title}
-                      </Link>
-                    </button>
-                  ))}
-                </div>
+                        <Link
+                          className="is-capitalized remove-link-color"
+                          to={button.url}
+                        >
+                          {button.title}
+                        </Link>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </BackgroundImage>

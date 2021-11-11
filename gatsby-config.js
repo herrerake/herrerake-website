@@ -40,10 +40,10 @@ module.exports = {
           process.env.NODE_ENV === "production"
             ? process.env.DEPLOY_URL
             : "http://localhost:1337",
-        queryLimit: 5000, // Default to 100
-        contentTypes: [`Users`, `Case-Studies`, `Portfolios`],
+        queryLimit: 1000, // Default to 100
+        collectionTypes: [`users`, `case-studies`, `portfolios`, `blogs`],
         //If using single types place them in this array.
-        singleTypes: [`Homepage`],
+        singleTypes: [`Homepage`, `Blogpage`],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
       },
     },
