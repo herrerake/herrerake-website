@@ -3,7 +3,7 @@ import Hero from "../components/hero"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import useBlogPosts from "../hooks/useBlogPosts"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const BlogPage = () => {
@@ -47,6 +47,8 @@ const BlogPage = () => {
           <div className="columns">
             {allBlogPost.map(post => {
               const image = getImage(post.featureImage.localFile)
+              var blogTitle = post.title.replace(/\ /g, "-")
+              var blogSeries = post.series.replace(/\ /g, "-")
               return (
                 <div className="column is-4" key={post.id}>
                   <GatsbyImage
@@ -54,7 +56,9 @@ const BlogPage = () => {
                     className="mb-2"
                     alt={post.featureImage.alternativeText}
                   />
-                  <h3>{post.title}</h3>
+                  <Link to={`/blog/${blogSeries}/${blogTitle}`}>
+                    <h3 className="is-capitalized">{post.title}</h3>
+                  </Link>
                   <p>{post.description}</p>
                 </div>
               )
