@@ -38,12 +38,13 @@ module.exports = {
       options: {
         apiURL:
           process.env.NODE_ENV === "production"
+          //DEPLOY_URL variable is in gatsbyjs.com/dashboard
             ? process.env.DEPLOY_URL
             : "http://localhost:1337",
-        queryLimit: 5000, // Default to 100
-        contentTypes: [`Users`, `Case-Studies`, `Portfolios`],
+        queryLimit: 1000, // Default to 100
+        collectionTypes: [`Users`, `Case-Studies`, `Portfolios`, `Blogs`],
         //If using single types place them in this array.
-        singleTypes: [`Homepage`],
+        singleTypes: [`Homepage`, `Blogpage`],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
       },
     },
