@@ -41,7 +41,7 @@ module.exports = {
             ? process.env.DEPLOY_URL
             : "http://localhost:1337",
         queryLimit: 1000, // Default to 100
-        collectionTypes: [`users`, `case-studies`, `portfolios`, `blogs`],
+        collectionTypes: [`Users`, `Case-Studies`, `Portfolios`, `Blogs`],
         //If using single types place them in this array.
         singleTypes: [`Homepage`, `Blogpage`],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
