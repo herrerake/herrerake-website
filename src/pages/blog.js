@@ -29,7 +29,6 @@ const BlogPage = () => {
   `)
   const heroData = data.strapiBlogpage.hero
 
-  console.log(allBlogPost)
   return (
     <Layout>
       <Seo title="Herrerake - Blog" />
