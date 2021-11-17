@@ -38,6 +38,7 @@ module.exports = {
       options: {
         apiURL:
           process.env.NODE_ENV === "production"
+          //DEPLOY_URL variable is in gatsbyjs.com/dashboard
             ? process.env.DEPLOY_URL
             : "http://localhost:1337",
         queryLimit: 1000, // Default to 100
