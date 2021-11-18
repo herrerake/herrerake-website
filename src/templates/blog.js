@@ -102,7 +102,8 @@ export const postQuery = graphql`
   }
 `
 
-// Blog.PropTypes = {
-//   data: PropTypes.object.isRequired,
-// }
+Blog.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
 export default Blog
