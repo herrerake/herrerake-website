@@ -39,7 +39,7 @@ const BlogPage = () => {
             <div className="column">
               <h2 className="title">The How I Built This Series</h2>
               <p className="subtitle">
-                Shout out to NPR, Guy, and all those folks over there
+                The Herrerake documentary series. Follow how it is being built.
               </p>
             </div>
           </div>
@@ -59,9 +59,28 @@ const BlogPage = () => {
                     <h3 className="is-capitalized">{post.title}</h3>
                   </Link>
                   <p>{post.description}</p>
+                  <Link to={`/blog/${blogSeries}/${blogTitle}`}>
+                    <button className="button is-primary">Read More</button>
+                  </Link>
                 </div>
               )
             })}
+          </div>
+        </section>
+        <section className="section">
+          <div className="columns">
+            <div className="column">
+              <h2 className="title">The Showcase Series</h2>
+              <p className="subtitle">
+                Documentating the work done by Herrerake. Read clients'
+                testimonies and learn if we can add value to your projects.
+              </p>
+            </div>
+          </div>
+          <div className="columns">
+            <div className="column">
+              <p>This part of the site is still under construction. Stay tuned!</p>
+            </div>
           </div>
         </section>
       </div>
